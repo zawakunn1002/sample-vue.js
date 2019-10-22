@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分岐とループ</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p　v-if="error">エラーです</p>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                error: true
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>配列繰り返し+並び替え</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <style>
+        .flip-list-move {
+            transition: transform .9s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="shuffle">シャッフル</button>
+        <transition-group name="flip-list" tag="ul">
+            <li v-for="pref in prefs" v-bind:key ="pref.name">
+                <!-- v-bind:key は　:keyでも可-->
+                    {{ pref.name }}
+            </li>
+        </transition-group>
+        
+            
+    </div>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                prefs: [
+                    { name: '北海道' },
+                    { name: '青森県' },
+                    { name: '岩手県' },
+                    { name: '宮城県' },
+                    { name: '秋田県' },
+                    { name: '山形県' }
+                ]
+            },
+            methods: {
+                shuffle: function() {
+                    this.prefs = _.shuffle(this.prefs);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
